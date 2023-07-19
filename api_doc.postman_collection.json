@@ -1,0 +1,196 @@
+{
+	"info": {
+		"_postman_id": "5d2980a3-b82c-4c5f-b335-b9ddb8aca168",
+		"name": "Santander Coders - Ng II - Nutrition API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24509181"
+	},
+	"item": [
+		{
+			"name": "products",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "dasdasd",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/products",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "products/{id}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/products/1",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"products",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "products",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "yogurt",
+							"type": "text"
+						},
+						{
+							"key": "calories",
+							"value": "150",
+							"type": "text"
+						},
+						{
+							"key": "total_fat",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "cholesterol",
+							"value": "10",
+							"type": "text"
+						},
+						{
+							"key": "sodium",
+							"value": "85",
+							"type": "text"
+						},
+						{
+							"key": "total_carbohydrate",
+							"value": "27",
+							"type": "text"
+						},
+						{
+							"key": "protein",
+							"value": "6",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/products",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "products/{id}",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "yogurt",
+							"type": "text"
+						},
+						{
+							"key": "calories",
+							"value": "150",
+							"type": "text"
+						},
+						{
+							"key": "total_fat",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "cholesterol",
+							"value": "10",
+							"type": "text"
+						},
+						{
+							"key": "sodium",
+							"value": "85",
+							"type": "text"
+						},
+						{
+							"key": "total_carbohydrate",
+							"value": "27",
+							"type": "text"
+						},
+						{
+							"key": "protein",
+							"value": "6",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/products/1",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"products",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "products/{id}",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/products/1",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"products",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
