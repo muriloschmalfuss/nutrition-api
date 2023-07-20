@@ -10,10 +10,7 @@ router.get('/', function(req, res, next) {
       res.status(400).json({ error: err.message });
       return;
     }
-    res.json({
-      message: "success",
-      data: rows
-    })
+    res.json(rows);
   })
 });
 
@@ -47,6 +44,7 @@ router.post('/', function(req, res, next) {
 
   var data = {
     name: req.body.name,
+    calories: req.body.calories,
     total_fat: req.body.total_fat,
     cholesterol: req.body.cholesterol,
     sodium: req.body.sodium,
@@ -54,8 +52,8 @@ router.post('/', function(req, res, next) {
     protein: req.body.protein
   }
 
-  var sql = "insert into products (name, total_fat, cholesterol, sodium, total_carbohydrate, protein) values (?, ?, ?, ?, ?, ?)"
-  var params = [data.name, data.total_fat, data.cholesterol, data.sodium, data.total_carbohydrate, data.protein];
+  var sql = "insert into products (name, calories, total_fat, cholesterol, sodium, total_carbohydrate, protein) values (?, ?, ?, ?, ?, ?, ?)"
+  var params = [data.name, data.calories, data.total_fat, data.cholesterol, data.sodium, data.total_carbohydrate, data.protein];
 
   db.run(sql, params, function(err, result) {
     if (err) {
@@ -73,6 +71,7 @@ router.post('/', function(req, res, next) {
 router.put('/:id', function(req, res, next) {
   var data = {
     name: req.body.name,
+    calories: req.body.calories,
     total_fat: req.body.total_fat,
     cholesterol: req.body.cholesterol,
     sodium: req.body.sodium,
@@ -82,13 +81,14 @@ router.put('/:id', function(req, res, next) {
 
   db.run(`update products set
     name = COALESCE(?, name),
+    calories = COALESCE(?, calories),
     total_fat = COALESCE(?, total_fat),
     cholesterol = COALESCE(?, cholesterol),
     sodium = COALESCE(?, sodium),
     total_carbohydrate = COALESCE(?, total_carbohydrate),
     protein = COALESCE(?, protein)
     where id = ?`,
-    [data.name, data.total_fat, data.cholesterol, data.sodium, data.total_carbohydrate, data.protein, req.params.id],
+    [data.name, data.calories, data.total_fat, data.cholesterol, data.sodium, data.total_carbohydrate, data.protein, req.params.id],
     function(err, result) {
       if (err) {
         res.status(400).json({ error: err.message });

@@ -71,6 +71,11 @@
 						},
 						{
 							"key": "calories",
+							"value": "280",
+							"type": "text"
+						},
+						{
+							"key": "calories",
 							"value": "150",
 							"type": "text"
 						},
@@ -189,6 +194,14 @@
 						"1"
 					]
 				}
+			},
+			"response": []
+		},
+		{
+			"name": "users/register",
+			"request": {
+				"method": "POST",
+				"header": []
 			},
 			"response": []
 		}
