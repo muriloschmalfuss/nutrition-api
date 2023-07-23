@@ -14,7 +14,6 @@ router.post('/register', function(req, res, next) {
 
   var sql = 'select * from users where email = ?';
   var params = [email];
-  var user = null;
 
   db.get(sql, params, async (err, row) => {
     if (err) {
@@ -22,7 +21,6 @@ router.post('/register', function(req, res, next) {
       return;
     }
     if(row) {
-      console.log(row);
       res.status(409).json({message: "Usuario ja existe"});
       return;
     }
@@ -43,7 +41,30 @@ router.post('/register', function(req, res, next) {
 });
 
 router.post('/login', async function(req, res, next) {
-  res.send('respond with a resource');
+  var email = req.body.email;
+  var password = req.body.password;
+
+  var sql = 'select * from users where email = ?';
+  var params = [email];
+
+  db.get(sql, params, async (err, row) => {
+    if (err) {
+      console.error(err);
+      return;
+    }
+
+    if(row) {
+      bcrypt.compare(password, row.password, (err, matched) => {
+        if(matched) {
+          res.status(200).json(row);
+        } else {
+          res.status(403).json({message: "usuario ou senha invalido"})
+        }
+      })
+    } else {
+      res.status(403).json({message: "usuario ou senha invalido"})
+    }
+  });
 });
 
 module.exports = router;
